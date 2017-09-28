@@ -11,7 +11,7 @@ public class Board {
 		grid = new Integer[rows][cols];
 		for(int i = 0; i < rows; i++) {
 			for(int j = 0; j < cols; j++) {
-				grid[i][j] = -1;
+				grid[i][j] = 0;
 			}
 		}
 	}

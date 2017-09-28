@@ -31,7 +31,7 @@ public class TestBoard {
 	public void testBoardInitiated() {
 		for(int i = 0; i < b.getRows(); i++) {
 			for(int j = 0; j < b.getCols(); j++) {
-				assertEquals(-1, b.getValue(i,j));
+				assertEquals(0, b.getValue(i,j));
 			}
 		}
 		
