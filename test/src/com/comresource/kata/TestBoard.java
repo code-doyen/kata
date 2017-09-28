@@ -37,5 +37,15 @@ public class TestBoard {
 		
 		//fail("Not yet implemented");
 	}
+	@Test
+	public void testBoardValuesUpdated() {
+		for(int i = 0; i < b.getRows(); i++) {
+			for(int j = 0; j < b.getCols(); j++) {
+				b.setValue(i, j, 1);
+				assertEquals(1, b.getValue(i,j));
+			}
+		}
+		//fail("Not yet implemented");
+	}
 
 }
