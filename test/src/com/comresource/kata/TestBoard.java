@@ -47,5 +47,22 @@ public class TestBoard {
 		}
 		//fail("Not yet implemented");
 	}
+	@Test
+	public void testCloneBoard() {
+		Board c = new Board(3,3);
+		for(int i = 0; i < b.getRows(); i++) {
+			for(int j = 0; j < b.getCols(); j++) {
+				b.setValue(i, j, 0);
+				c.setValue(i, j, 1);
+			}
+		}
+		b.cloneGrid(c);
+		for(int i = 0; i < b.getRows(); i++) {
+			for(int j = 0; j < b.getCols(); j++) {
+				assertEquals(1,b.getValue(i, j));
+			}
+		}
+		//fail("Not yet implemented");
+	}
 
 }

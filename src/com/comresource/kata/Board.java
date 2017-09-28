@@ -16,8 +16,12 @@ public class Board {
 			}
 		}
 	}
-	public Integer[][] getGrid() {
-		return grid;
+	public void cloneGrid(Board g) {
+		for(int i = 0; i < g.getRows(); i++) {
+			for(int j = 0; j < g.getCols(); j++) {
+				this.setValue(i, j, g.getValue(i,j));
+			}
+		}
 	}
 	public int getRows() {
 		return rows;
