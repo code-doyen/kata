@@ -24,10 +24,10 @@ public class Board {
 			}
 		}
 	}
-	public int getRows() {
+	public Integer getRows() {
 		return rows;
 	}
-	public int getCols() {
+	public Integer getCols() {
 		return cols;
 	}
 	

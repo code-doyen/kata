@@ -24,6 +24,10 @@ public class KataView extends JPanel implements MouseListener, ActionListener, R
 	Canvas canvas;
 	//create an instance of JTextfield
 	JTextField currentGeneration, rows, cols;
+	//create an instance of JLabel
+	JLabel gridLabel, xLabel, sliderLabel;
+	//create an instance of JButton
+	JButton actionButton;
 	//create an instance of Board to store initial life entities
 	Board lifeBoard;
 	//create an instance of Board to store initial life's offspring entities
@@ -34,10 +38,14 @@ public class KataView extends JPanel implements MouseListener, ActionListener, R
 	private long speed = 0;
 	//the game thread
     private Thread lifeThread = null;
+    //hold current Jbutton Action
+    private String action;
  
 	public KataView(int row, int col) {
 		//Initializes currently not simulating
 		simulating = false;
+		//Initializes Jbutton with text with an action
+		action = "Set Grid";
 		//Instantiates an instance of the Board class 'Model'
 		lifeBoard = new Board(row, col);
 		//Instantiates an instance of the Board class 'Model'
@@ -59,23 +67,31 @@ public class KataView extends JPanel implements MouseListener, ActionListener, R
 		userPanel.setLayout(new FlowLayout());
 		
 		//create JTextFields
-		rows = new JTextField(3);
-		cols = new JTextField(3);
-		rows.setEditable(true);
+		rows = new JTextField(lifeBoard.getRows().toString(),2);
+		cols = new JTextField(lifeBoard.getRows().toString(),2);
 		cols.setEditable(true);
-		//create JButtons
-		JButton actionButton = new JButton("Begin Simulation\"Set Grid\"");
-		
+		rows.setEditable(true);
+		//create JButton
+		actionButton = new JButton(action);
+		//create labels
+		gridLabel = new JLabel("Grid Size:");
+		xLabel = new JLabel("x");
+		sliderLabel = new JLabel("Frames per second", JLabel.CENTER);
 		//add components to user panel
-		userPanel.add(new JLabel("Grid Size:"));
+		userPanel.add(sliderLabel);
+		userPanel.add(gridLabel);
 		userPanel.add(rows);
-		userPanel.add(new JLabel("x"));
-		userPanel.add(cols);				
+		userPanel.add(xLabel);
+		userPanel.add(cols);
+		//add JButtons
 		userPanel.add(actionButton);
+		
+		//initially hide components
+		sliderLabel.setVisible(false);
 				
 		canvas = new Canvas();
 		canvas.setBackground(new Color(73, 121, 204));
-		//canvas.addMouseListener(this);
+		canvas.addMouseListener(this);
 		add(canvas, BorderLayout.CENTER);
 		add(userPanel, BorderLayout.SOUTH);
 	}
@@ -153,8 +169,45 @@ public class KataView extends JPanel implements MouseListener, ActionListener, R
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		//returns the mouse x/y-coordinate clicked and stores it to the x/y variable
+				int x = e.getX(); 
+				int y = e.getY();
+				int lifeCount = 0;
+				// prints x/y-coordinate to console
+				System.out.println("Mouse coord: {"+x+","+y+"}"); 
+				//trims the mouse click down to a column integer value and stores it in the variable column
+				int col = x / ((canvas.wid/lifeBoard.getCols())+2); 
+				int row = y / ((canvas.hgt/lifeBoard.getRows())+2);
+				System.out.println("Grid: ["+row+", "+col+"]");
+				if(!simulating) {
+					if(lifeBoard.isAlive(row, col))
+						lifeBoard.setValue(row, col, lifeBoard.DEAD);
+					else
+						lifeBoard.setValue(row, col, lifeBoard.ALIVE);
+					for(int i = 0; i < lifeBoard.getRows(); i++) {
+						for(int j = 0; j < lifeBoard.getCols(); j++) {
+							if(lifeBoard.isAlive(i, j))
+								lifeCount++;
+						}
+					}
+					if(lifeCount >= 3){
+						action = "Begin Simulation";
+						gridLabel.setVisible(false);
+						rows.setVisible(false);
+						xLabel.setVisible(false);
+						cols.setVisible(false);
+					}
+					else {
+						action = "Set Grid";
+						gridLabel.setVisible(true);
+						rows.setVisible(true);
+						xLabel.setVisible(true);
+						cols.setVisible(true);
+					}
+					
+					actionButton.setText(action);
+					canvas.repaint();
+				}
 	}
 
 	@Override

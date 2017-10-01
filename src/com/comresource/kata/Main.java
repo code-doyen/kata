@@ -9,6 +9,6 @@ public class Main {
 		window.setSize(1024,1024);
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
 }
