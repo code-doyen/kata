@@ -158,6 +158,14 @@ public class TestBoard {
 		//fail("Not yet implemented");
 	}
 	
+	@Test
+	public void testIsAlive() {
+		assertEquals(false, b.isAlive(0, 0));
+		b.setValue(0, 0, b.ALIVE);
+		assertEquals(true, b.isAlive(0, 0));
+		//fail("Not yet implemented");
+	}
+	
 //	Update cells with dead(0) or alive(1) based on the following criteria
 //	A cell’s neighbors are those cells which are horizontally, vertically or diagonally adjacent. Most cells will have eight neighbors. Cells placed on the edge of the grid will have fewer.
 //	Any live cell with fewer than two live neighbors dies, as if caused by under population. underPopulation()

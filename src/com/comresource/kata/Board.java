@@ -37,6 +37,9 @@ public class Board {
 	public void setValue(int r, int c, int vitalStatus) {
 		grid[r][c] = vitalStatus;
 	}
+	public boolean isAlive(int r, int c) {
+		return grid[r][c] == ALIVE;
+	}
 	private int getNeighbors(int r, int c) {
 		neighbors = 0;
 		//check grid value NW

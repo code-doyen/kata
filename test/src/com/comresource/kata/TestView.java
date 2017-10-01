@@ -11,7 +11,7 @@ import org.junit.Test;
 import com.comresource.kata.KataView;
 
 public class TestView {
-	KataView k = new KataView();
+	KataView k = new KataView(3, 3);
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -29,12 +29,13 @@ public class TestView {
 	}
 
 	@Test
-	public void testSimulating() {
-		assertEquals(false, k.getSimulating());
-		
-		k.setSimulating(true);
-		assertEquals(true, k.getSimulating());
-		//fail("Not yet implemented");
+	public void testKataContruct() {
+		assertEquals(false, k.simulating);		
+		assertEquals(3, k.lifeBoard.getCols());
+		assertEquals(3, k.lifeBoard.getRows());
+		assertEquals(3, k.offspringBoard.getCols());
+		assertEquals(3, k.offspringBoard.getRows());
+//		//fail("Not yet implemented");
 	}
 
 }
