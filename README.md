@@ -2,7 +2,8 @@
 # Kata
 Game of life (David B. Vollmar portfolio). Kata is a program that calculates the next generation of Conway’s game of life, given an initial state.
 
-### Setup
+# Installation
+
 * Download and install Oracle Java SE Development Kit 8u144 (jdk-8u144-windows-x64.exe) or 32 bit, is dependent on dev environment  
   - ```http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html```
 * Download and install Eclipse Oxygen (eclipse-inst-win64.exe) or 32 bit, is dependent on dev environment
@@ -10,7 +11,7 @@ Game of life (David B. Vollmar portfolio). Kata is a program that calculates the
 * Download and install GitBash
   - ```https://git-for-windows.github.io/```
 
-### Config
+# Usage
 * Windows Environment Variables
   - Type enviroment in windows 10 Cortona searchbar, select "Edit enviroment variables for your account"
     * User Variables
@@ -23,13 +24,34 @@ Game of life (David B. Vollmar portfolio). Kata is a program that calculates the
     * In the preferences window find Java, click arrow to expand tree, and click once on Installed JREs
     * Ensure ```jdk1.8.0_144(default)``` | ```C:\Program Files\Java\jdk1.8.0_144``` | ```Standard VM appears in table``` (if not add a standard VM)
 
-### Clone Project
-- Clone repo with gitBash
+* Clone Project
+  - Clone repo with gitBash
   - Create a project folder in local file system
   - At command line git clone ```https://github.com/code-doyen/kata.git``` || ```git@github.com:code-doyen/kata.git```  (http or ssh methods)
 
-### Import Project
-- Once in Eclipse, select File -> ```Import``` from the toolbar
-- Expand ```General``` tree and select ```Existing Projects into Workspace```
-- Point root directory to the parent folder the project was cloned inside
-- Select the project from the table and click finish
+* Import Project
+  - Once in Eclipse, select File -> ```Import``` from the toolbar
+    - Expand ```General``` tree and select ```Existing Projects into Workspace```
+    - Point root directory to the parent folder the project was cloned inside
+    - Select the project from the table and click finish
+
+* Running Project
+  - Locate ```Package Explorer```
+    - Expand package ```kata -> src -> com.comresource.kata -> ``` and double click ```Main.java```
+    - Press combination ```CTRL + F11``` to run the project
+
+* JUnit Test Project
+  - Locate ```Package Explorer```
+    - Expand package ```kata -> test/src -> com.comresource.kata -> ``` and double click ```AllTests.java```
+    - Press combination ```CTRL + F11``` to perform the JUnit tests
+
+# Contributing
+Clone the repository, make changes, and create a merge request.
+Please send me an [email](david.bradley.vollmar@gmail.com) with any feedback you have.
+
+# Credits
+Application developed by David Bradley Vollmar 
+Icon made by [Freepik](http://www.freepik.com/) from www.flaticon.com
+
+# License
+Finally, include a section for the license of your project. For more information on choosing a license, check out GitHub’s
