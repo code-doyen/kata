@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
-
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -13,16 +13,20 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.Timer;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
-public class KataView extends JPanel implements MouseListener, ActionListener, KeyListener{
-
-	Font font = new Font("Serif", Font.BOLD, 20);
+public class KataView extends JPanel implements MouseListener, ActionListener, KeyListener, ChangeListener{
+	
+	Font font = new Font("Serif", Font.ITALIC, 20);
 	private static final long serialVersionUID = 1L;
 	volatile boolean frozen;
 	//create an instance of Canvas 'the view
@@ -30,7 +34,7 @@ public class KataView extends JPanel implements MouseListener, ActionListener, K
 	//create an instance of JTextfield
 	JTextField currentGeneration, rows, cols;
 	//create an instance of JLabel
-	JLabel gridLabel, xLabel, sliderLabel;
+	JLabel genLabel, gridLabel, xLabel, sliderLabel;
 	//create an instance of JButton
 	JButton actionButton;
 	//create an instance of Board to store initial life entities
@@ -104,6 +108,8 @@ public class KataView extends JPanel implements MouseListener, ActionListener, K
 		}
 		lifeBoard.cloneGrid(offspringBoard);
 		timer.restart();
+		genLabel.setText(" Lifecycle: "+lifeCycle);
+		sliderLabel.setText((1000/delay)+" Frames per second ");
 	}
 	
 	private void draw(){
@@ -128,26 +134,36 @@ public class KataView extends JPanel implements MouseListener, ActionListener, K
 		actionButton = new JButton(action);
 		actionButton.setFont(font);
 		
+		//Create the slider.
+		
+        JSlider framesPerSecond = new JSlider(JSlider.HORIZONTAL, FPS_MIN, FPS_MAX, FPS_INIT);
+        //Turn on labels at major tick marks.
+        framesPerSecond.setMajorTickSpacing(10);
+        framesPerSecond.setMinorTickSpacing(1);
+        framesPerSecond.setPaintTicks(true);
+        framesPerSecond.setPaintLabels(true);
+        //framesPerSecond.setBorder(BorderFactory.createEmptyBorder(15,10,15,10));
+        framesPerSecond.setFont(font);
+        
 		//create labels
-		gridLabel = new JLabel("Grid Size:");
+        genLabel = new JLabel(" Lifecycle: "+lifeCycle);
+		gridLabel = new JLabel("Grid Size: ");
 		gridLabel.setFont(font);
 		xLabel = new JLabel("RxC");
 		xLabel.setFont(font);
-		sliderLabel = new JLabel("Frames per second", JLabel.CENTER);
+		sliderLabel = new JLabel("Frames per second ");
+		genLabel.setFont(font);
 		sliderLabel.setFont(font);
 		
 		//add components to user panel
 		userPanel.add(sliderLabel);
+		userPanel.add(framesPerSecond);
 		userPanel.add(gridLabel);
 		userPanel.add(rows);
 		userPanel.add(xLabel);
 		userPanel.add(cols);
-		
-		//add JButtons
 		userPanel.add(actionButton);
-		
-		//initially hide components
-		sliderLabel.setVisible(false);
+		userPanel.add(genLabel);
 		
 		//instantiate canvas
 		canvas = new Canvas();
@@ -162,6 +178,9 @@ public class KataView extends JPanel implements MouseListener, ActionListener, K
 		
 		//add mouse listeners
 		canvas.addMouseListener(this);
+		
+		//add slider change listeners
+		framesPerSecond.addChangeListener(this);
 		
 		//attach components to view
 		add(canvas, BorderLayout.CENTER);
@@ -331,6 +350,24 @@ public class KataView extends JPanel implements MouseListener, ActionListener, K
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void stateChanged(ChangeEvent e) {
+		// Listen to the slider.
+		JSlider source = (JSlider)e.getSource();
+        if (!source.getValueIsAdjusting()) {
+            int fps = (int)source.getValue();
+            if (fps == 0) {
+                if (!frozen) pause();
+            } else {
+                delay = 1000 / fps;
+                timer.setDelay(delay);
+                timer.setInitialDelay(delay * 10);
+                if (frozen) start();
+            }
+        }
 		
 	}
 	
