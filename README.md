@@ -1,3 +1,4 @@
+
 # Kata
 Game of life (David B. Vollmar portfolio). Kata is a program that calculates the next generation of Conway’s game of life, given an initial state.
 
@@ -30,3 +31,5 @@ Game of life (David B. Vollmar portfolio). Kata is a program that calculates the
 ### Import Project
 - Once in Eclipse, select File -> ```Import``` from the toolbar
 - Expand ```General``` tree and select ```Existing Projects into Workspace```
+- Point root directory to the parent folder the project was cloned inside
+- Select the project from the table and click finish
