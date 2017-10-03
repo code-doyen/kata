@@ -59,9 +59,10 @@ public class TestBoard {
 		b.cloneGrid(c);
 		for(int i = 0; i < b.getRows(); i++) {
 			for(int j = 0; j < b.getCols(); j++) {
-				
+				assertEquals(c.ALIVE, b.getValue(i, j));
 			}
 		}
+		
 		//fail("Not yet implemented");
 	}
 	@Test

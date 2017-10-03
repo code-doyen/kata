@@ -24,6 +24,7 @@ public class Board {
 			}
 		}
 	}
+	
 	public Integer getRows() {
 		return rows;
 	}

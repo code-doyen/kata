@@ -30,11 +30,12 @@ public class TestView {
 
 	@Test
 	public void testKataContruct() {
-		assertEquals(false, k.simulating);		
+		assertEquals(true, k.frozen);		
 		assertEquals(3, k.lifeBoard.getCols().intValue());
 		assertEquals(3, k.lifeBoard.getRows().intValue());
 		assertEquals(3, k.offspringBoard.getCols().intValue());
 		assertEquals(3, k.offspringBoard.getRows().intValue());
+		
 		//fail("Not yet implemented");
 	}
 
