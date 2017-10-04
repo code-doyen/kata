@@ -10,12 +10,12 @@ Game of life (David B. Vollmar portfolio). Kata is a program that calculates the
   - ```http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html```
 * Download and install Eclipse Oxygen (eclipse-inst-win64.exe) or 32 bit, is dependent on dev environment
   - ```https://www.eclipse.org/downloads/download.php?file=/oomph/epp/oxygen/R/eclipse-inst-win64.exe&mirror_id=1135```
-* Download and install GitBash
+* Download and install Git Bash
   - ```https://git-for-windows.github.io/```
 
 # Usage
 * Windows Environment Variables
-  - Type enviroment in windows 10 Cortona searchbar, select "Edit enviroment variables for your account"
+  - Type environment in windows 10 Cortona search bar, select "Edit environment variables for your account"
     * User Variables
       - ```PATH```: Add ```C:\Program Files\Java\jdk1.8.0_144\bin``` ```C:\Program Files\Java\jre1.8.0_144\bin``` (or the appropriate paths, if the directories are located elsewhere or you have a different version) to the beginning of the line.  Do NOT make changes to what is already there.
     * System Variables
@@ -28,7 +28,7 @@ Game of life (David B. Vollmar portfolio). Kata is a program that calculates the
     
 
 * Clone Project
-  - Clone repo with gitBash
+  - Clone repo with Git Bash
   - Create a project folder in local file system
   - At command line git clone ```https://github.com/code-doyen/kata.git``` || ```git@github.com:code-doyen/kata.git```  (http or ssh methods)
 
@@ -63,9 +63,9 @@ Please send me an [email](mailto:david.bradley.vollmar@gmail.com) with any feedb
   2. Any live cell with more than three live neighbors dies, as if by overcrowding.
   3. Any live cell with two or three live neighbors lives on to the next generation.
   4. Any dead cell with exactly three live neighbors becomes a live cell.
-  5. A cell’s neighbors are those cells which are horizontally, vertically or diagonally adjacent.
+  5. A cell’s neighbors are those cells which are horizontally, vertically, or diagonally adjacent.
   Most cells will have eight neighbors. Cells placed on the edge of the grid will have fewer.
-* Output/Display the next state ot the grid according to the rules of Conway’s Game of Life listed above.
+* Output/Display the next state of the grid according to the rules of Conway’s Game of Life listed above.
 
 <table style="display: border: 1px solid;">
   <thead>
@@ -129,7 +129,7 @@ Please send me an [email](mailto:david.bradley.vollmar@gmail.com) with any feedb
   - Added a visual counter to track current lifecycles completed
 # Design Choices
 * Algorithm
-  - The current grid (lifeBoard) is iterated over and each cell's 8 surrounding positions are evaluated, unless bounds are outside the grid. Each condition is assessed one at a time against the current grid cell. If ```underPopulation()``` or ```overCrowding()``` returns true, the same cell in offSpringBoard becomes dead. If ```nextGeneration()``` or ```reincarnateCell()``` returns true, the same cell in offSpringBoard becomes alive. Finally, the offspring grid is cloned to the life grid and the cycle begins anew. The overall goal was to transform the grid into condtional statments and utilize flow control. Much of the heavy lifting is performed by the aforementioned helper methods which belong to the ```Board class.```   
+  - The current grid (lifeBoard) is iterated over and each cell's 8 surrounding positions are evaluated, unless bounds are outside the grid. Each condition is assessed one at a time against the current grid cell. If ```underPopulation()``` or ```overCrowding()``` returns true, the same cell in offSpringBoard becomes dead. If ```nextGeneration()``` or ```reincarnateCell()``` returns true, the same cell in offSpringBoard becomes alive. Finally, the offspring grid is cloned to the life grid and the cycle begins anew. The overall goal was to transform the grid into conditional statements and utilize flow control. Much of the heavy lifting is performed by the aforementioned helper methods which belong to the ```Board class.```   
   ```java
     for(int r = 0; r < lifeBoard.getRows(); r++) {
         for(int c = 0; c < lifeBoard.getCols(); c++) {
@@ -163,4 +163,4 @@ Icon made by [Freepik](http://www.freepik.com/) from www.flaticon.com
 British mathematician [John Horton Conway](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)  
 
 # License
-Kata adheres to the terms set forth by [Apache License 2.0](/LICENSE)
+Kata adheres to the terms and conditions set forth by the [Apache License 2.0](/LICENSE)
