@@ -1,7 +1,7 @@
 # Kata
 Game of life (David B. Vollmar portfolio). Kata is a program that calculates the next generation of Conway’s game of life, given an initial state.
 
-[Installation](README.md#Installation) [Usage](README.md#Usage) [Contributing](README.md#Contributing) [Installation](README.md#Installation) [Credits](README.md#Credits)  [License](README.md#License)
+[Installation](#installation) [Usage](#usage) [Contributing](#contributing) [Credits](#credits)  [License](#license)
 
 # Installation 
 
