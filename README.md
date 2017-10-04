@@ -1,10 +1,9 @@
-
 # Kata
 Game of life (David B. Vollmar portfolio). Kata is a program that calculates the next generation of Conway’s game of life, given an initial state.
 
 [Installation](/#Installation) [Usage](/#Usage) [Contributing](/#Contributing) [Installation](/#Installation) [Credits](/#Credits)  [License](/#License)
 
-# Installation
+# [Installation](#Installation) 
 
 * Download and install Oracle Java SE Development Kit 8u144 (jdk-8u144-windows-x64.exe) or 32 bit, is dependent on dev environment  
   - ```http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html```
@@ -13,7 +12,7 @@ Game of life (David B. Vollmar portfolio). Kata is a program that calculates the
 * Download and install GitBash
   - ```https://git-for-windows.github.io/```
 
-# Usage
+# [Usage](#Usage)
 * Windows Environment Variables
   - Type enviroment in windows 10 Cortona searchbar, select "Edit enviroment variables for your account"
     * User Variables
@@ -47,15 +46,15 @@ Game of life (David B. Vollmar portfolio). Kata is a program that calculates the
     - Expand package ```kata -> test/src -> com.comresource.kata -> ``` and double click ```AllTests.java```
     - Press combination ```CTRL + F11``` to perform the JUnit tests
 
-# Contributing
+# [Contributing](#Contributing)
 Clone the repository, make changes, and create a merge request.
 
 Please send me an [email](mailto:david.bradley.vollmar@gmail.com) with any feedback you have.
 
-# Credits
+# [Credits](#Credits)
 Application developed by David Bradley Vollmar 
 
 Icon made by [Freepik](http://www.freepik.com/) from www.flaticon.com
 
-# License
+# [License](#License)
 Kata adheres to the terms set forth by [Apache License 2.0](/LICENSE)
