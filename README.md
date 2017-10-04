@@ -2,6 +2,8 @@
 # Kata
 Game of life (David B. Vollmar portfolio). Kata is a program that calculates the next generation of Conway’s game of life, given an initial state.
 
+[Installation](/#Installation) [Usage](/#Usage) [Contributing](/#Contributing) [Installation](/#Installation) [Credits](/#Credits)  [License](/#License)
+
 # Installation
 
 * Download and install Oracle Java SE Development Kit 8u144 (jdk-8u144-windows-x64.exe) or 32 bit, is dependent on dev environment  
@@ -47,11 +49,13 @@ Game of life (David B. Vollmar portfolio). Kata is a program that calculates the
 
 # Contributing
 Clone the repository, make changes, and create a merge request.
-Please send me an [email](david.bradley.vollmar@gmail.com) with any feedback you have.
+
+Please send me an [email](mailto:david.bradley.vollmar@gmail.com) with any feedback you have.
 
 # Credits
 Application developed by David Bradley Vollmar 
+
 Icon made by [Freepik](http://www.freepik.com/) from www.flaticon.com
 
 # License
-Finally, include a section for the license of your project. For more information on choosing a license, check out GitHub’s
+Kata adheres to the terms set forth by [Apache License 2.0](/LICENSE)
